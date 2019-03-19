@@ -14,16 +14,21 @@ class Styleguide extends Component {
     
 
 
-    selectUpdate = e => {
+    selectUpdate = (e) => {
         e.preventDefault();
-        // this.setState({
-        //     selectValue : {
-        //         value :  e.currentTarget.textContent
-        //     }
-        // })
+        this.setState({
+            selectValue : {
+                value :  e.target.value
+            }
+        })
         
-        console.log(e.currentTarget.textContent)
+        //console.log(e.currentTarget.textContent)
     }
+
+    showdata = () => {
+        // console.log in the selectUpdate function itself will not show as data is passed async
+        console.log(this.state.selectValue.value)
+    } 
 
     render() {
         return (
@@ -77,20 +82,21 @@ class Styleguide extends Component {
                         placeholder="Input disables" />
                     </Column>
                     <Column>
-                        <SelectWrapper>
+                        {/* <SelectWrapper>
                             <Select></Select>
                             <OptionWrapper onClick={this.selectUpdate}>
                                 <Option>Select One</Option>
                                 <Option>Select Two</Option>
                                 <Option>Select Three</Option>
                             </OptionWrapper>                   
-                        </SelectWrapper>
+                        </SelectWrapper> */}
 
-                        {/* <select onChange={this.selectUpdate}>
+                        <select onChange={this.selectUpdate}>
                             <option>Select One</option>
                             <option>Select Two</option>
                             <option>Select Three</option>
-                        </select> */}
+                        </select>
+                        <PrimaryButton onClick={this.showdata}>Show</PrimaryButton>
                     </Column>
                     {/* <Column>
                         <form>

@@ -15,6 +15,7 @@ const Button = styled.button`
     border-radius: 4px;
     white-space: nowrap;
     margin: 5px;
+    cursor: pointer;
 `
 
 export const PrimaryButton = styled(Button)`
