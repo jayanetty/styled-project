@@ -1,0 +1,5 @@
+
+# gitignore comments start with hash
+
+/node_modules
+package-lock.json
