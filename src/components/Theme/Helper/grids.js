@@ -33,7 +33,6 @@ export const Row = styled.div`
             ${props => props.auto_flow && css`
                 grid-auto-flow: column;
             `};
-
         }
         
         @media ${Device.desktop} {

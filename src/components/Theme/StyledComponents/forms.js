@@ -22,7 +22,7 @@ export const Input = styled.input`
     border-width: ${Variables.input_border_width};
     border-style: ${Variables.input_border_style};
     border-color: ${Variables.input_border_color}; 
-    margin-bottom: ${Variables.input_margin};
+    margin: ${Variables.input_margin};
     background-color: ${Colors.white};
     color: ${Colors.black}; 
     outline: none;
@@ -56,19 +56,19 @@ export const ErrorLabel = styled.label`
     letter-spacing: 0;
 `;
 
-export const Select = styled.div`
+export const Select = styled.select`
     font: ${Theme.font_size} ${Theme.primary_font};
     padding: ${Variables.input_padding};
-    /* border-width: ${Variables.input_border_width};
+    border-width: ${Variables.input_border_width};
     border-style: ${Variables.input_border_style};
     border-color: ${Variables.input_border_color}; 
-    margin-bottom: ${Variables.input_margin};
+    margin: ${Variables.input_margin};
     background-color: ${Colors.white};
     color: ${Colors.black}; 
     outline: none;
     width: calc(100% - 20px);
     cursor: pointer;
-    width: 480px; */
+    width: 480px;
     
 `
 

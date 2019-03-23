@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {Colors} from "../Helper/variables";
 import {Animations} from "../Helper/mixins";
 
@@ -16,6 +16,8 @@ const Button = styled.button`
     white-space: nowrap;
     margin: 5px;
     cursor: pointer;
+
+    
 `
 
 export const PrimaryButton = styled(Button)`
@@ -25,6 +27,17 @@ export const PrimaryButton = styled(Button)`
       background-color: ${Colors.white}; 
       color: ${Colors.primary_color};
     }
+
+    ${props => props.disabled && css`
+        background-color: ${Colors.gray}; 
+        border-color:  ${Colors.gray}; 
+
+        &:hover {
+          cursor: inherit;
+          background-color: ${Colors.gray}; 
+          color: ${Colors.white};
+        }
+    `};
 `;
 
 export const SecondaryButton = styled(Button)`

@@ -4,6 +4,10 @@ import { Row, Column } from "../Helper/grids";
 import { Theme } from "./theme";
 import {Colors} from '../Helper/variables'; 
 
+const Variables = {
+  sideBarWidth: '230px' 
+}
+
 export const OuterWrapper = styled.section`
   width: 100%;
 `;
@@ -12,6 +16,11 @@ export const InnerWrapper = styled.section`
   margin: 0 auto;
   width: 100%; 
   max-width: ${Theme.inner_wrapper__width_s};
+
+  ${props => props.sidebar && css`
+      margin-left: calc(${Variables.sideBarWidth} + ${Theme.grid__gap});
+      width: calc(100% - (${Variables.sideBarWidth} + ${Theme.grid__gap}));
+  `};
   
   @media ${ Device.tablet } {
     max-width: ${ Theme.inner_wrapper__width_m };
@@ -23,52 +32,22 @@ export const InnerWrapper = styled.section`
 `;
 
 export const CardWrapper = styled(Row)`
-  
-  &::-webkit-scrollbar {
-    height: 5px;
-    background-color: transparent;
-    cursor: pointer;
-  }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: ${Colors.primary_color};
-    border-radius: 10px;
-    cursor: pointer;
-  }
-
-  @media ${Device.tablet} {
-    /* overflow: auto; */
-  }
 `
 
 export const Card = styled(Column)`
   cursor: pointer;
-
-  ${props => props.round_details && css`
-      span {
-        border-radius: 50%;
-        border: 4px solid ${Colors.gray};
-      }
-
-      @media ${Device.tablet} {
-        /* width: 200px; */
-      }
-  `};
+  padding: 10px;
+  background-color: ${Colors.white};
+  border-radius: 2px;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1), 0px 0px 0px 0px rgba(0,0,0,0.1), 0px 0.5px 1px 0.25px rgba(0,0,0,0.1);
 
   ${props => props.image_details && css`
       overflow: hidden;
       margin-bottom: 20px;
       position: relative;
-
-      @media ${Device.tablet} {
-        /* width: 150px; */
-      }
+      padding: 0;
   `};
-
-  &:after {
-    /* content: '';
-    box-shadow: 0 0 20px 2px rgba(2, 0, 14, .88); */
-  }
 
   span {
     display: block;
@@ -112,4 +91,21 @@ export const TableWrapper = styled(Row)`
 
 export const TableColumn = styled(Column)`
   padding: 20px;
+`
+
+export const Sidebar = styled.aside`
+  width: ${Variables.sideBarWidth};
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: ${Colors.primary_color};
+  z-index: 9;
+`
+
+export const SidebarItem = styled.p`
+  color: ${Colors.white};
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
 `

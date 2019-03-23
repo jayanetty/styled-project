@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {Row, Column, Colors, H1, H2, H3, InnerWrapper, PrimaryButton, SecondaryButton, IconButton, P, Input, Select, Option} from '../Theme';
+import {Row, Column, Colors, H1, H2, H3, InnerWrapper, PrimaryButton, SecondaryButton, 
+    IconButton, P, Input, Select, Option, CardWrapper, Card, Sidebar, SidebarItem
+} from '../Theme';
+import Tabs from '../Theme/StyledComponents/tabs';
 
 class Styleguide extends Component {
     constructor() {
@@ -32,7 +35,16 @@ class Styleguide extends Component {
 
     render() {
         return (
-            <InnerWrapper>
+            <InnerWrapper sidebar>
+                <Sidebar>
+                    <SidebarItem>Colors</SidebarItem>
+                    <SidebarItem>Buttons</SidebarItem>
+                    <SidebarItem>Typography</SidebarItem>
+                    <SidebarItem>Form Elements</SidebarItem>
+                    <SidebarItem>Cards</SidebarItem>
+                    <SidebarItem>Tabs</SidebarItem>
+                    <SidebarItem>Sidebar</SidebarItem>
+                </Sidebar>
                 <StylesTitle>Colors</StylesTitle>
                 <Row grid columns={"repeat(5,1fr)"}>
                     <BaseBlackColor>
@@ -61,6 +73,7 @@ class Styleguide extends Component {
                     <Column><PrimaryButton>Primary</PrimaryButton></Column>
                     <Column><SecondaryButton>Secondary</SecondaryButton></Column>
                     <Column><IconButton>Icon Button</IconButton></Column>
+                    <Column><PrimaryButton disabled>Disabled Button</PrimaryButton></Column>
                 </Row>
                 <StylesTitle>Typography</StylesTitle>
                 <Row grid columns={"repeat(1,1fr)"}>
@@ -91,14 +104,14 @@ class Styleguide extends Component {
                             </OptionWrapper>                   
                         </SelectWrapper> */}
 
-                        <select onChange={this.selectUpdate}>
+                        <Select onChange={this.selectUpdate}>
                             <option>Select One</option>
                             <option>Select Two</option>
                             <option>Select Three</option>
-                        </select>
-                        <PrimaryButton onClick={this.showdata}>Show</PrimaryButton>
+                        </Select>
+                        {/* <PrimaryButton onClick={this.showdata}>Show</PrimaryButton> */}
                     </Column>
-                    {/* <Column>
+                    <Column>
                         <form>
                            <input type="radio"
                            name="radio"
@@ -121,7 +134,46 @@ class Styleguide extends Component {
                            id="checktwo" />   
                            <label for="checktwo">Radio option two</label>  
                         </form>
-                    </Column> */}
+                    </Column>
+                </Row>
+                <StylesTitle>Cards</StylesTitle>
+                <Row grid columns={"repeat(1,1fr)"}>
+                    <Column>
+                        <CardWrapper grid columns={"repeat(3,1fr)"}>
+                            <Card image_details>
+                                <span><img src="https://via.placeholder.com/350" /></span>
+                                <p>Card Element</p>
+                            </Card>
+                            <Card image_details>
+                                <span><img src="https://via.placeholder.com/350" /></span>
+                                <p>Card Element</p>
+                            </Card>
+                            <Card image_details>
+                                <span><img src="https://via.placeholder.com/350" /></span>
+                                <p>Card Element</p>
+                            </Card>
+                        </CardWrapper>
+                    </Column>
+                    <Column>
+                        <CardWrapper grid columns={"repeat(3,1fr)"}>
+                            <Card>Card Element</Card>
+                            <Card>Card Element</Card>
+                            <Card>Card Element</Card>
+                        </CardWrapper>
+                    </Column>
+                </Row>
+                <StylesTitle>Tabs</StylesTitle>
+                <Row grid columns={"repeat(1,1fr)"}>
+                    <Column>
+                        <Tabs>
+                            <div label="Tab 1">
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta vulputate eros vitae consectetur. Curabitur sed volutpat nunc. Pellentesque volutpat magna sit amet euismod egestas. Nulla vel lacus erat. In ut orci nulla. Donec arcu est, congue eget lorem vel, elementum dictum dui. Sed arcu magna, sollicitudin eu nibh at, sagittis volutpat enim. Aliquam ullamcorper ullamcorper neque, sit amet dapibus ligula gravida vel. Nulla massa magna, elementum a erat non, malesuada ornare felis. Integer ut odio vulputate, luctus ligula a, bibendum augue. Quisque sit amet eros pharetra, vestibulum nisi sit amet, commodo nisl.</div>
+                            </div>
+                            <div label="Tab 2">
+                                <div>Curabitur vel urna vitae arcu dictum tempus. Nunc eget eros suscipit, fermentum mauris eu, dignissim enim. Nam efficitur, ipsum ac elementum varius, arcu tellus hendrerit odio, sit amet convallis ipsum sapien non nisi. Duis hendrerit pulvinar tortor, eget varius augue eleifend et. Quisque a egestas tellus, ac aliquet magna. Donec pulvinar in lorem in finibus. Curabitur eget ante justo. Sed bibendum nisi vitae urna imperdiet, eget eleifend turpis facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu eleifend elit. Fusce porta laoreet nulla in venenatis.</div>
+                            </div>
+                        </Tabs>
+                    </Column>
                 </Row>
             </InnerWrapper> 
         );

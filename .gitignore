@@ -2,4 +2,6 @@
 # gitignore comments start with hash
 
 /node_modules
+/_cacache
+/.vscode
 package-lock.json
