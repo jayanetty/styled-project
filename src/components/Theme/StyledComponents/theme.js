@@ -5,7 +5,7 @@ import {Animations} from '../Helper/mixins'
 /* ======================== Theme Variables ================================= */
 
 // Theme common variables
-export let Theme = {
+export const Theme = {
     primary_font: 'Open Sans, sans-serif',
     secondary_font: 'Open Sans, sans-serif',
     font_size: '1.4rem',
@@ -18,7 +18,7 @@ export let Theme = {
     inner_wrapper__width_l: '1270px',
 };
 
-export const ListWrapperStyle = css`
+export const ListWrapperStyle = css` 
     list-style: none;
     padding: 0;
     margin: 0;

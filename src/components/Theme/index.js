@@ -7,3 +7,4 @@ export { OuterWrapper, InnerWrapper, CardWrapper, Card, TableWrapper, TableColum
 export { Theme, GlobalStyle, ListWrapper, ListWrapperStyle } from './StyledComponents/theme';
 export { Input, Select, Option } from './StyledComponents/forms';
 export { PrimaryButton, SecondaryButton, IconButton } from './StyledComponents/buttons';
+export { PaginationWrapper, PageNumber, PageControls } from './StyledComponents/pagination';

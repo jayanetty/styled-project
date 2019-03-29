@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {Row, Column, Colors, H1, H2, H3, InnerWrapper, PrimaryButton, SecondaryButton, 
-    IconButton, P, Input, Select, Option, CardWrapper, Card, Sidebar, SidebarItem
+    IconButton, P, Input, Select, Option, CardWrapper, Card, Sidebar, SidebarItem, PaginationWrapper, PageNumber, PageControls
 } from '../Theme';
+import {ListWrapper, Theme} from '../Theme/StyledComponents/theme';
 import Tabs from '../Theme/StyledComponents/tabs';
 
 class Styleguide extends Component {
@@ -77,11 +78,13 @@ class Styleguide extends Component {
                 </Row>
                 <StylesTitle>Typography</StylesTitle>
                 <Row grid columns={"repeat(1,1fr)"}>
-                    <Column><H1>Title One</H1></Column>
-                    <Column><H2>Title Two</H2></Column>
-                    <Column><H3>Title Three</H3></Column>
-                    <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mollis magna in est dapibus, at facilisis magna consectetur. In lobortis commodo elit, nec egestas arcu ornare ut. Donec porta dignissim ex, eget faucibus tortor facilisis non. Cras vehicula diam eu nulla vulputate interdum. Vivamus vitae ultricies nibh.</P>
-                    <Column><a href="#">Primary Text Links</a></Column>
+                    <Column>Primary Font : {Theme.primary_font}</Column>
+                    <Column>Secondary Font : {Theme.secondary_font}</Column>
+                    <Column><H1>Title One: {Theme.secondary_font}</H1></Column>
+                    <Column><H2>Title Two: {Theme.secondary_font}</H2></Column>
+                    <Column><H3>Title Three: {Theme.secondary_font}</H3></Column>
+                    <P>{Theme.primary_font}: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mollis magna in est dapibus, at facilisis magna consectetur. In lobortis commodo elit, nec egestas arcu ornare ut. Donec porta dignissim ex, eget faucibus tortor facilisis non. Cras vehicula diam eu nulla vulputate interdum. Vivamus vitae ultricies nibh.</P>
+                    <Column><a href="#">Primary Text Links: {Theme.primary_font}</a></Column>
                 </Row>
                 <StylesTitle>Form Elements</StylesTitle>
                 <Row grid columns={"repeat(1,1fr)"}>
@@ -139,18 +142,47 @@ class Styleguide extends Component {
                 <StylesTitle>Cards</StylesTitle>
                 <Row grid columns={"repeat(1,1fr)"}>
                     <Column>
-                        <CardWrapper grid columns={"repeat(3,1fr)"}>
-                            <Card image_details>
-                                <span><img src="https://via.placeholder.com/350" /></span>
-                                <p>Card Element</p>
+                        <CardWrapper grid gap={"30px"} columns={"repeat(4,1fr)"}>
+                            <Card product>
+                                <a href="#">
+                                    <AddtoWishlist/>
+                                    <span><img src="https://via.placeholder.com/237x355" /></span>
+                                    <p>Product name</p>
+                                    <PriceWrapper>
+                                        <OldPrice>$1200</OldPrice>
+                                        <Price>$999</Price>
+                                    </PriceWrapper>
+                                </a>
                             </Card>
-                            <Card image_details>
-                                <span><img src="https://via.placeholder.com/350" /></span>
-                                <p>Card Element</p>
+                            <Card product>
+                                <a href="#">
+                                    <AddtoWishlist/>
+                                    <span><img src="https://via.placeholder.com/237x355" /></span>
+                                    <p>Product name</p>
+                                    <PriceWrapper>
+                                        <Price>$465</Price>
+                                    </PriceWrapper>
+                                </a>
                             </Card>
-                            <Card image_details>
-                                <span><img src="https://via.placeholder.com/350" /></span>
-                                <p>Card Element</p>
+                            <Card product>
+                                <a href="#">
+                                    <AddtoWishlist/>
+                                    <span><img src="https://via.placeholder.com/237x355" /></span>
+                                    <p>Product name</p>
+                                    <PriceWrapper>
+                                        <Price>$465</Price>
+                                    </PriceWrapper>
+                                </a>
+                            </Card>
+                            <Card product>
+                                <a href="#">
+                                    <AddtoWishlist/>
+                                    <span><img src="https://via.placeholder.com/237x355" /></span>
+                                    <p>Product name</p>
+                                    <PriceWrapper>
+                                        <Price>$465</Price>
+                                    </PriceWrapper>
+                                </a>
                             </Card>
                         </CardWrapper>
                     </Column>
@@ -175,10 +207,48 @@ class Styleguide extends Component {
                         </Tabs>
                     </Column>
                 </Row>
+                <StylesTitle>Pagination</StylesTitle>
+                <Row grid columns={"repeat(1,1fr)"}>
+                    <Column>
+                        <PaginationWrapper>
+                            <PageControls previous />
+                            <PageNumber>1</PageNumber>
+                            <PageNumber>2</PageNumber>
+                            <PageNumber>3</PageNumber>
+                            <PageNumber>4</PageNumber>
+                            <PageNumber>5</PageNumber>
+                            <PageControls next />
+                        </PaginationWrapper>
+                    </Column>
+                </Row>
             </InnerWrapper> 
         );
     }
 }
+
+
+const PriceWrapper = styled.div`
+    display: flex;
+    justify-content: center; 
+
+    p {
+        margin: 0;
+    }
+`;
+
+const Price = styled.p`
+    padding-left: 5px;
+`;
+
+const OldPrice = styled.p`
+    color: ${Colors.error_color};
+    text-decoration: line-through;
+    padding-right: 5px;
+`;
+
+const AddtoWishlist = styled.div`
+`;
+
 
 const Color = styled(Column)`
   text-align: center;

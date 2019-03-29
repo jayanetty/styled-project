@@ -42,44 +42,43 @@ export const Card = styled(Column)`
   border-radius: 2px;
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1), 0px 0px 0px 0px rgba(0,0,0,0.1), 0px 0.5px 1px 0.25px rgba(0,0,0,0.1);
 
-  ${props => props.image_details && css`
-      overflow: hidden;
-      margin-bottom: 20px;
-      position: relative;
-      padding: 0;
-  `};
-
-  span {
-    display: block;
+  ${props => props.product && css`
+    position: relative;
     overflow: hidden;
-
-    img {
-      width: 100%;
-      display: block;
-      transition: all 1s ease;
-    }
-  }
-
-  p {
-    text-align: center;
-  }
+    padding: 0 0 1em;
+    margin-bottom: 20px;      
+  `}; 
 
   a {
     text-decoration: none;
-    color: ${Colors.white};
+    color: ${Colors.font_color};
     display: block;
-    background-color: ${Colors.gray};
 
-    p {
+    span {
+      display: block;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        display: block;
+        transition: all 1s ease;
+      }
+    }
+
+    > p {
       position: relative;
       padding: 10px;
       font-size: 1.4rem;
       margin: 0;
+      text-align: center;
+      font-weight: bold;
     }
     
     &:hover {
-      img {
-        transform: ${Animations.zoom_in}; 
+      span {
+        img {
+          transform: ${Animations.zoom_in}; 
+        }
       }
     }
   }
