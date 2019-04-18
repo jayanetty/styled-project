@@ -15,6 +15,11 @@ export const PageNumber = styled.li`
     justify-content: center;
     align-items: center;
     border-right: 1px solid #ccc;
+    cursor: pointer; 
+
+    a {
+        text-decoration: none;
+    }
 
     &:last-child {
         border-right: 0;

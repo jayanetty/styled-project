@@ -211,21 +211,47 @@ class Styleguide extends Component {
                 <Row grid columns={"repeat(1,1fr)"}>
                     <Column>
                         <PaginationWrapper>
-                            <PageControls previous />
-                            <PageNumber>1</PageNumber>
-                            <PageNumber>2</PageNumber>
-                            <PageNumber>3</PageNumber>
-                            <PageNumber>4</PageNumber>
-                            <PageNumber>5</PageNumber>
-                            <PageControls next />
+                            <PageControls previous><a href="#"></a></PageControls>
+                            <PageNumber><a href="#">1</a></PageNumber>
+                            <PageNumber><a href="#">2</a></PageNumber>
+                            <PageNumber><a href="#">3</a></PageNumber>
+                            <PageNumber><a href="#">4</a></PageNumber>
+                            <PageNumber><a href="#">5</a></PageNumber>
+                            <PageControls next><a href="#"></a></PageControls>
                         </PaginationWrapper>
                     </Column>
+                </Row>
+                <StylesTitle>Product Details</StylesTitle>
+                <Row grid columns={"repeat(2,1fr)"}>
+                    <Column></Column>
+                    <Column>
+                        <H1>Carment Blouse</H1>
+                        <SkuWrapper>1001068</SkuWrapper>
+                        <ProductDetails>The Carmen Blouse in charcoal is relaxed fit true wrap style top featuring a bow tie front and three quarter sleeves. Please note, colour is truer to the product image.</ProductDetails>
+
+                    </Column> 
                 </Row>
             </InnerWrapper> 
         );
     }
 }
 
+
+// Product Details
+
+const SkuWrapper = styled.div`
+`
+
+const ProductDetails = styled.p`
+    margin: 2rem 0;
+`
+
+const ColorWrapper = styled.div`
+    
+`
+
+
+// Product Listing
 
 const PriceWrapper = styled.div`
     display: flex;
@@ -248,6 +274,11 @@ const OldPrice = styled.p`
 
 const AddtoWishlist = styled.div`
 `;
+
+
+
+
+
 
 
 const Color = styled(Column)`
